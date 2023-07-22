@@ -6,8 +6,8 @@ import Pagination from "./Pagination";
 function App() {
   const [pokemon, setPokemon] = useState([])
   const [currentPageUrl, setCurrentPageUrl] = useState("https://pokeapi.co/api/v2/pokemon")
-  const [nextPageUrl, setNextPageUrl] = useState("https://pokeapi.co/api/v2/pokemon")
-  const [prevPageUrl, setPrevPageUrl] = useState("https://pokeapi.co/api/v2/pokemon")
+  const [nextPageUrl, setNextPageUrl] = useState()
+  const [prevPageUrl, setPrevPageUrl] = useState()
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -40,8 +40,8 @@ function App() {
     <>
       <PokemonList pokemon={pokemon} />
       <Pagination 
-        accessNextPage={accessNextPage}
-        accessPrevPage={accessPrevPage}
+        accessNextPage={nextPageUrl ? accessNextPage : null}
+        accessPrevPage={prevPageUrl ? accessPrevPage : null}
       />
     </>
   );

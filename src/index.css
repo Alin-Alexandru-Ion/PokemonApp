@@ -1,0 +1,88 @@
+body {
+    margin: 0px;
+    background-color: black;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+.card-group, 
+.card {
+    aspect-ratio: 5 / 7;
+    width: 30vmin;
+}
+
+.card {
+    width: 30vmin;
+    aspect-ratio: 5 / 7;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 1vmin;
+    position: absolute;
+    display: grid;
+    place-items: center;
+}
+
+.card:nth-child(1) {
+    transform: translateX(-100%) rotate(-5deg) translateY(5%);
+}
+
+.card:nth-child(2) {
+    transform: translateX(-80%) rotate(-4deg) translateY(4%);
+}
+
+.card:nth-child(3) {
+    transform: translateX(-60%) rotate(-3deg) translateY(3%);
+}
+
+.card:nth-child(4) {
+    transform: translateX(-40%) rotate(-2deg) translateY(2%);
+}
+
+.card:nth-child(5) {
+    transform: translateX(-20%) rotate(-1deg) translateY(1%);
+}
+
+.card:nth-child(6) {
+    transform: translateX(0%) translateY(0%);
+}
+
+.card:nth-child(7) {
+    transform: translateX(20%) rotate(1deg) translateY(1%);
+}
+
+.card:nth-child(8) {
+    transform: translateX(40%) rotate(2deg) translateY(2%);
+}
+
+.card:nth-child(9) {
+    transform: translateX(60%) rotate(3deg) translateY(3%);
+}
+
+.card:nth-child(10) {
+    transform: translateX(80%) rotate(4deg) translateY(4%);
+}
+
+.button-group {
+    margin-top: 8vmin;
+    display: flex;
+    justify-content: space-around;
+}
+
+.button-group > button {
+    font-size: 2.5vmin;
+    color: white;
+    border: 0.4vmin solid rgb(200, 200, 200);
+    border-radius: 100%;
+    background-color: transparent;
+    height: 6vmin;
+    width: 6vmin;
+    cursor: pointer;
+}
+
+#prev-button {
+    color: orange;
+}
+
+#next-button {
+    color: blue;
+}

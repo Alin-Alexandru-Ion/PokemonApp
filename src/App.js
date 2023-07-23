@@ -13,6 +13,7 @@ function App() {
   const [loading, setLoading] = useState(true)
   const [loadFirst, setLoadFirst] = useState(false)
 
+  //  Initial data fetch using Axios also used for pagination
   useEffect(() => {
     setLoading(true)
     let cancel
@@ -34,32 +35,38 @@ function App() {
 
   }, [currentPageUrl])
 
+
+  //  Second data fetch for individual Pokemon
   useEffect(() => {
     if (loadFirst)  {
-      const fetchPokemonIds = async () => {
+      const fetchPokemonData = async () => {
         const promises = pokemonUrl.map(url => axios.get(url));
         try {
           const responses = await Promise.all(promises);
-          const pokemonIds = responses.map(response => response.data);
-          setPokemonDetails(pokemonIds)
+          const pokemonData = responses.map(response => response.data);
+          setPokemonDetails(pokemonData)
         } catch (error) {
           console.log('Error fetching Pokemon Data:', error);
         }
       }
-      fetchPokemonIds()
+      fetchPokemonData()
     }
   }, [pokemonUrl, loadFirst])
 
+
+  //  Pagination & Animation trigger
   function accessNextPage() {
     setCurrentPageUrl(nextPageUrl)
   }
 
+  //  Pagination & Animation trigger
   function accessPrevPage() {
     setCurrentPageUrl(prevPageUrl)
   }
 
+  //  Loading component
   if (loading) 
-  return <div>Loading...</div>
+    return <div className="loading">Loading...</div>
 
   return (
     <>

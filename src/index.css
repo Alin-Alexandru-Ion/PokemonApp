@@ -1,13 +1,13 @@
 body {
     margin: 0px;
-    background-color: black;
+    background-color: rgb(8, 0, 10);
     height: 100vh;
     display: grid;
     place-items: center;
 }
 
 .card-group {
-    transition: transform 400ms ease;
+    transition: transform 1s ease;
 }
 
 .card-group, 
@@ -17,19 +17,19 @@ body {
 }
 
 .card-group:hover > .card:nth-child(1) {
-    transform: translate(-240%, 34%) rotate(-19deg);
+    transform: translate(-255%, 17%) rotate(-12deg);
 }
 
 .card-group:hover > .card:nth-child(2) {
-    transform: translate(-180%, 20%) rotate(-14deg);
+    transform: translate(-200%, 10%) rotate(-9deg);
 }
 
 .card-group:hover > .card:nth-child(3) {
-    transform: translate(-120%, 10%) rotate(-10deg);
+    transform: translate(-140%, 5%) rotate(-6deg);
 }
 
 .card-group:hover > .card:nth-child(4) {
-    transform: translate(-60%, 3%) rotate(-5deg);
+    transform: translate(-70%, 1%) rotate(-3deg);
 }
 
 .card-group:hover > .card:nth-child(5) {
@@ -37,66 +37,149 @@ body {
 }
 
 .card-group:hover > .card:nth-child(6) {
-    transform: translate(60%, 3%) rotate(5deg);
+    transform: translate(70%, 1%) rotate(3deg);
 }
 
 .card-group:hover > .card:nth-child(7) {
-    transform: translate(120%, 10%) rotate(10deg);
+    transform: translate(140%, 5%) rotate(6deg);
 }
 
 .card-group:hover > .card:nth-child(8) {
-    transform: translate(180%, 20%) rotate(14deg);
+    transform: translate(200%, 10%) rotate(9deg);
 }
 
 .card-group:hover > .card:nth-child(9) {
-    transform: translate(240%, 34%) rotate(19deg);
+    transform: translate(255%, 17%) rotate(12deg);
 }
 
 .card {
     width: 30vmin;
     aspect-ratio: 5 / 7;
-    background-color: rgba(195, 201, 142, 0.9);
-    border-radius: 1vmin;
-    border-color: white;
+    background-color: rgba(210, 210, 210, 0.9);
+    border-radius: 2vmin;
+    border-style: solid;
+    border-color: rgb(255, 220, 0);
+    border-width: 1vmin;
     position: absolute;
     display: grid;
     place-items: center;
+    align-items: center;
+    box-shadow: 2vmin 2vmin 3vmin black;
+    transition: 1s ease;
 }
 
 .card:nth-child(1) {
+    scale: 75%;
     transform: translateX(-60%) rotate(-4deg) translateY(4%);
+    z-index: 1;
+}
+
+.card:nth-child(1):hover {
+    scale: 90%;
+    z-index: 6;
+    transform: translateX(-50%);
 }
 
 .card:nth-child(2) {
+    scale: 75%;
     transform: translateX(-45%) rotate(-3deg) translateY(3%);
+    z-index: 2;
+}
+
+.card:nth-child(2):hover {
+    scale: 90%;
+    z-index: 6;
 }
 
 .card:nth-child(3) {
+    scale: 75%;
     transform: translateX(-30%) rotate(-2deg) translateY(2%);
+    z-index: 3;
+}
+
+.card:nth-child(3):hover {
+    scale: 90%;
+    z-index: 6;
 }
 
 .card:nth-child(4) {
+    scale: 75%;
     transform: translateX(-15%) rotate(-1deg) translateY(1%);
+    z-index: 4;
+}
+
+.card:nth-child(4):hover {
+    scale: 90%;
+    z-index: 6;
 }
 
 .card:nth-child(5) {
-    transform: translateX(7.5%);
+    scale: 75%;
+    transform: translateX(0%);
+    z-index: 5;
+}
+
+.card:nth-child(5):hover {
+    scale: 90%;
+    z-index: 6;
 }
 
 .card:nth-child(6) {
+    scale: 75%;
     transform: translateX(15%) rotate(1deg) translateY(1%);
+    z-index: 4;
+}
+
+.card:nth-child(6):hover {
+    scale: 90%;
+    z-index: 6;
 }
 
 .card:nth-child(7) {
+    scale: 75%;
     transform: translateX(30%) rotate(2deg) translateY(2%);
+    z-index: 3;
+}
+
+.card:nth-child(7):hover {
+    scale: 90%;
+    z-index: 6;
 }
 
 .card:nth-child(8) {
+    scale: 75%;
     transform: translateX(45%) rotate(3deg) translateY(3%);
+    z-index: 2;
+}
+
+.card:nth-child(8):hover {
+    scale: 90%;
+    z-index: 6;
 }
 
 .card:nth-child(9) {
+    scale: 75%;
     transform: translateX(60%) rotate(4deg) translateY(4%);
+    z-index: 1;
+}
+
+.card:nth-child(9):hover {
+    scale: 90%;
+    z-index: 6;
+}
+
+.picture {
+    scale: 75%;
+    transform: translateX(-11.5%);
+}
+
+.text {
+    font-size: 32px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    -webkit-text-stroke-width: 3px;
+    text-transform: uppercase;
+    transform: translateX(-23%);
+    text-shadow: 4px 4px 4px white;
 }
 
 .button-group {
@@ -118,11 +201,23 @@ body {
 }
 
 #prev-button {
-    color: rgb(160, 160, 160);
-    border-color: rgb(160, 160, 160);
+    color: rgb(200, 200, 200);
+    border-color: rgb(200, 200, 200);
+    transition: 750ms ease;
+}
+
+#prev-button:hover {
+    color: rgb(120, 120, 120);
+    border-color: rgb(120, 120, 120);
 }
 
 #next-button {
     color: rgb(200, 25, 0);
     border-color: rgb(200, 25, 0);
+    transition: 750ms ease;
+}
+
+#next-button:hover {
+    color: rgb(120, 15, 0);
+    border-color: rgb(120, 15, 0);
 }

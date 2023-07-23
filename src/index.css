@@ -6,70 +6,108 @@ body {
     place-items: center;
 }
 
+.card-group {
+    transition: transform 400ms ease;
+}
+
 .card-group, 
 .card {
     aspect-ratio: 5 / 7;
     width: 30vmin;
 }
 
+.card-group:hover > .card:nth-child(1) {
+    transform: translate(-240%, 34%) rotate(-19deg);
+}
+
+.card-group:hover > .card:nth-child(2) {
+    transform: translate(-180%, 20%) rotate(-14deg);
+}
+
+.card-group:hover > .card:nth-child(3) {
+    transform: translate(-120%, 10%) rotate(-10deg);
+}
+
+.card-group:hover > .card:nth-child(4) {
+    transform: translate(-60%, 3%) rotate(-5deg);
+}
+
+.card-group:hover > .card:nth-child(5) {
+    transform: translate(0, 0%) rotate(0deg);
+}
+
+.card-group:hover > .card:nth-child(6) {
+    transform: translate(60%, 3%) rotate(5deg);
+}
+
+.card-group:hover > .card:nth-child(7) {
+    transform: translate(120%, 10%) rotate(10deg);
+}
+
+.card-group:hover > .card:nth-child(8) {
+    transform: translate(180%, 20%) rotate(14deg);
+}
+
+.card-group:hover > .card:nth-child(9) {
+    transform: translate(240%, 34%) rotate(19deg);
+}
+
 .card {
     width: 30vmin;
     aspect-ratio: 5 / 7;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(195, 201, 142, 0.9);
     border-radius: 1vmin;
+    border-color: white;
     position: absolute;
     display: grid;
     place-items: center;
 }
 
 .card:nth-child(1) {
-    transform: translateX(-100%) rotate(-5deg) translateY(5%);
+    transform: translateX(-60%) rotate(-4deg) translateY(4%);
 }
 
 .card:nth-child(2) {
-    transform: translateX(-80%) rotate(-4deg) translateY(4%);
+    transform: translateX(-45%) rotate(-3deg) translateY(3%);
 }
 
 .card:nth-child(3) {
-    transform: translateX(-60%) rotate(-3deg) translateY(3%);
+    transform: translateX(-30%) rotate(-2deg) translateY(2%);
 }
 
 .card:nth-child(4) {
-    transform: translateX(-40%) rotate(-2deg) translateY(2%);
+    transform: translateX(-15%) rotate(-1deg) translateY(1%);
 }
 
 .card:nth-child(5) {
-    transform: translateX(-20%) rotate(-1deg) translateY(1%);
+    transform: translateX(7.5%);
 }
 
 .card:nth-child(6) {
-    transform: translateX(0%) translateY(0%);
+    transform: translateX(15%) rotate(1deg) translateY(1%);
 }
 
 .card:nth-child(7) {
-    transform: translateX(20%) rotate(1deg) translateY(1%);
+    transform: translateX(30%) rotate(2deg) translateY(2%);
 }
 
 .card:nth-child(8) {
-    transform: translateX(40%) rotate(2deg) translateY(2%);
+    transform: translateX(45%) rotate(3deg) translateY(3%);
 }
 
 .card:nth-child(9) {
-    transform: translateX(60%) rotate(3deg) translateY(3%);
-}
-
-.card:nth-child(10) {
-    transform: translateX(80%) rotate(4deg) translateY(4%);
+    transform: translateX(60%) rotate(4deg) translateY(4%);
 }
 
 .button-group {
     margin-top: 8vmin;
     display: flex;
     justify-content: space-around;
+    padding: 0vmin 4vmin;
 }
 
 .button-group > button {
-    font-size: 2.5vmin;
+    font-size: 5vmin;
     color: white;
     border: 0.4vmin solid rgb(200, 200, 200);
     border-radius: 100%;
@@ -80,9 +118,11 @@ body {
 }
 
 #prev-button {
-    color: orange;
+    color: rgb(160, 160, 160);
+    border-color: rgb(160, 160, 160);
 }
 
 #next-button {
-    color: blue;
+    color: rgb(200, 25, 0);
+    border-color: rgb(200, 25, 0);
 }

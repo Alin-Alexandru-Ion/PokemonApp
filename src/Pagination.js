@@ -7,11 +7,11 @@ export default function Pagination({ accessNextPage, accessPrevPage }) {
     <div class="button-group">
 
         { accessPrevPage && <button id="prev-button" class="button" onClick={accessPrevPage}>
-          <ArrowBackIcon></ArrowBackIcon>
+          <ArrowBackIcon fontSize='10'></ArrowBackIcon>
         </button> }
 
         { accessNextPage && <button id="next-button" class="button" onClick={accessNextPage}>
-          <ArrowForwardIcon></ArrowForwardIcon>
+          <ArrowForwardIcon fontSize='30'></ArrowForwardIcon>
         </button> }
     </div>
   )

@@ -20,15 +20,15 @@ function App() {
     axios.get(currentPageUrl, {
         cancelToken: new axios.CancelToken(c => cancel = c)
     }).then(res => {
-      setLoading(false)
       setNextPageUrl(res.data.next)
       setPrevPageUrl(res.data.previous)
       setPokemon(res.data.results.map(p => p.name ))
       setPokemonUrl(res.data.results.map(p => p.url))
+      setTimeout(() => setLoading(false), 2500);   // 500ms time of timeout to assure that the resources are properly loaded
       setLoadFirst(true)
-  }).catch((error) => {
-    setLoading(false);
-    console.log('Error occurred:', error);
+    }).catch((error) => {
+      setLoading(false);
+      console.log('Error occurred:', error);
   })
 
     return () => cancel.cancel
@@ -64,9 +64,13 @@ function App() {
     setCurrentPageUrl(prevPageUrl)
   }
 
-  //  Loading component
+  //  Loading Pokeball animation
   if (loading) 
-    return <div className="loading">Loading...</div>
+    return (
+    <div className="pokeball">
+      <div className="pokeball_button"></div>
+    </div>
+    )
 
   return (
     <>

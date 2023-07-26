@@ -2,17 +2,18 @@ import React from 'react'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
-export default function Pagination({ accessNextPage, accessPrevPage }) {
+export default function Pagination({ accessNextPage, accessPrevPage, fadeOut, fadeIn }) {
   return (
-    <div className="button-group">
+    <div className={fadeOut ? `fade-out` : null}>
+      <div id="button-group" className={fadeIn ? `fade-in` : null}>
+          { accessPrevPage && <button id="button" onClick={accessPrevPage}>
+            <ArrowBackIcon fontSize='10'></ArrowBackIcon>
+          </button> }
 
-        { accessPrevPage && <button id="prev-button" className="button" onClick={accessPrevPage}>
-          <ArrowBackIcon fontSize='10'></ArrowBackIcon>
-        </button> }
-
-        { accessNextPage && <button id="next-button" className="button" onClick={accessNextPage}>
-          <ArrowForwardIcon fontSize='30'></ArrowForwardIcon>
-        </button> }
+          { accessNextPage && <button id="button" onClick={accessNextPage}>
+            <ArrowForwardIcon fontSize='30'></ArrowForwardIcon>
+          </button> }
+      </div>
     </div>
   )
 }

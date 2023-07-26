@@ -7,53 +7,53 @@ body {
     place-items: center;
 }
 
-.card-group {
+#card-group {
     transition: transform 750ms ease;
 }
 
-.card-group, 
-.card {
+#card-group, 
+#card {
     aspect-ratio: 5 / 7;
     width: 30vmin;
 }
 
-.card-group:hover > .card:nth-child(1) {
+#card-group:hover > #card:nth-child(1) {
     transform: translate(-255%, 17%) rotate(-12deg);
 }
 
-.card-group:hover > .card:nth-child(2) {
+#card-group:hover > #card:nth-child(2) {
     transform: translate(-200%, 10%) rotate(-9deg);
 }
 
-.card-group:hover > .card:nth-child(3) {
+#card-group:hover > #card:nth-child(3) {
     transform: translate(-140%, 5%) rotate(-6deg);
 }
 
-.card-group:hover > .card:nth-child(4) {
+#card-group:hover > #card:nth-child(4) {
     transform: translate(-70%, 1%) rotate(-3deg);
 }
 
-.card-group:hover > .card:nth-child(5) {
+#card-group:hover > #card:nth-child(5) {
     transform: translate(0, 0%) rotate(0deg);
 }
 
-.card-group:hover > .card:nth-child(6) {
+#card-group:hover > #card:nth-child(6) {
     transform: translate(70%, 1%) rotate(3deg);
 }
 
-.card-group:hover > .card:nth-child(7) {
+#card-group:hover > #card:nth-child(7) {
     transform: translate(140%, 5%) rotate(6deg);
 }
 
-.card-group:hover > .card:nth-child(8) {
+#card-group:hover > #card:nth-child(8) {
     transform: translate(200%, 10%) rotate(9deg);
 }
 
-.card-group:hover > .card:nth-child(9) {
+#card-group:hover > #card:nth-child(9) {
     transform: translate(255%, 17%) rotate(12deg);
 }
 
-.card {
+#card {
     width: 30vmin;
     aspect-ratio: 5 / 7;
     background-color: rgba(210, 210, 210, 0.9);
@@ -69,112 +69,112 @@ body {
     transition: 1s ease;
 }
 
-.card:nth-child(1) {
+#card:nth-child(1) {
     scale: 75%;
     transform: translateX(-60%) rotate(-4deg) translateY(4%);
     z-index: 1;
 }
 
-.card:nth-child(1):hover {
+#card:nth-child(1):hover {
     scale: 90%;
     z-index: 6;
     transform: translateX(-50%);
 }
 
-.card:nth-child(2) {
+#card:nth-child(2) {
     scale: 75%;
     transform: translateX(-45%) rotate(-3deg) translateY(3%);
     z-index: 2;
 }
 
-.card:nth-child(2):hover {
+#card:nth-child(2):hover {
     scale: 90%;
     z-index: 6;
 }
 
-.card:nth-child(3) {
+#card:nth-child(3) {
     scale: 75%;
     transform: translateX(-30%) rotate(-2deg) translateY(2%);
     z-index: 3;
 }
 
-.card:nth-child(3):hover {
+#card:nth-child(3):hover {
     scale: 90%;
     z-index: 6;
 }
 
-.card:nth-child(4) {
+#card:nth-child(4) {
     scale: 75%;
     transform: translateX(-15%) rotate(-1deg) translateY(1%);
     z-index: 4;
 }
 
-.card:nth-child(4):hover {
+#card:nth-child(4):hover {
     scale: 90%;
     z-index: 6;
 }
 
-.card:nth-child(5) {
+#card:nth-child(5) {
     scale: 75%;
     transform: translateX(0%);
     z-index: 5;
 }
 
-.card:nth-child(5):hover {
+#card:nth-child(5):hover {
     scale: 90%;
     z-index: 6;
 }
 
-.card:nth-child(6) {
+#card:nth-child(6) {
     scale: 75%;
     transform: translateX(15%) rotate(1deg) translateY(1%);
     z-index: 4;
 }
 
-.card:nth-child(6):hover {
+#card:nth-child(6):hover {
     scale: 90%;
     z-index: 6;
 }
 
-.card:nth-child(7) {
+#card:nth-child(7) {
     scale: 75%;
     transform: translateX(30%) rotate(2deg) translateY(2%);
     z-index: 3;
 }
 
-.card:nth-child(7):hover {
+#card:nth-child(7):hover {
     scale: 90%;
     z-index: 6;
 }
 
-.card:nth-child(8) {
+#card:nth-child(8) {
     scale: 75%;
     transform: translateX(45%) rotate(3deg) translateY(3%);
     z-index: 2;
 }
 
-.card:nth-child(8):hover {
+#card:nth-child(8):hover {
     scale: 90%;
     z-index: 6;
 }
 
-.card:nth-child(9) {
+#card:nth-child(9) {
     scale: 75%;
     transform: translateX(60%) rotate(4deg) translateY(4%);
     z-index: 1;
 }
 
-.card:nth-child(9):hover {
+#card:nth-child(9):hover {
     scale: 90%;
     z-index: 6;
 }
 
-.picture {
+#picture {
     scale: 75%;
     transform: translateX(-11.5%);
 }
 
-.text {
+#text {
     font-size: 32px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     -webkit-text-stroke-width: 3px;
@@ -183,14 +183,14 @@ body {
     text-shadow: 4px 4px 4px rgb(255, 255, 255);
 }
 
-.button-group {
+#button-group {
     margin-top: 8vmin;
     display: flex;
     justify-content: space-around;
     padding: 0vmin 4vmin;
 }
 
-.button-group > button {
+#button-group > button {
     font-size: 5vmin;
     color: rgb(255, 255, 255);
     border: 0.4vmin solid rgb(200, 200, 200);
@@ -201,14 +201,90 @@ body {
     cursor: pointer;
 }
 
-.button {
+#button {
     color: rgb(255, 255, 255);
     border-color: rgb(255, 255, 255);
     transition: 500ms ease;
 }
 
-.button:hover {
+#button:hover {
     animation: button_blink .5s alternate infinite ease-in-out;
+}
+
+#pokeball {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    background: rgb(255, 255, 255);
+    border: 10px solid rgb(0, 0, 0);
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: inset -10px 10px 0 10px rgb(175, 175, 175);
+}
+#pokeball::before,
+#pokeball::after {
+    content:"";
+    position: absolute;
+}
+#pokeball::before {
+    background: rgb(255, 0, 0);
+    width: 100%;
+    height: 50%;
+}
+#pokeball::after {
+    top: calc(50% - 10px);
+    width: 100%;
+    height: 20px;
+    background: rgb(0, 0, 0);
+}
+#pokeball_button {
+    position: absolute;
+    top: calc(50% - 37.5px);
+    left: calc(50% - 37.5px);
+    width: 50px;
+    height: 50px;
+    background: rgb(130, 130, 130);
+    border: 10px solid rgb(255, 255, 255);
+    border-radius: 50%;
+    z-index: 10;
+    box-shadow: 0 0 0 10px rgb(0, 0, 0);
+}
+
+/* Animations triggers */
+
+.fade-in{
+    animation: fade-in 1s;
+    animation-delay: 0s;
+}
+
+.fade-out {
+    animation: fade-out 1s;
+}
+
+.ball {
+    animation: fade-in 500ms, fall 250ms ease-in-out, shake 1000ms cubic-bezier(0.36, 0.07, 0.19, 0.97) 2, fade-out 2000ms;
+    animation-delay: 0ms , 0ms, 0ms, 2000ms;
+}
+
+.aux {
+    animation: blink 500ms alternate 7;
+}
+
+/*Animations keyframes*/
+
+@keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fade-out {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@keyframes blink {
+    from { background: rgb(255, 255, 255);}
+    to { background: rgb(255, 100, 100); }
 }
 
 @keyframes button_blink {
@@ -222,51 +298,6 @@ body {
     }
 }
 
-.pokeball {
-    position: relative;
-    width: 300px;
-    height: 300px;
-    background: rgb(255, 255, 255);
-    border: 10px solid rgb(0, 0, 0);
-    border-radius: 50%;
-    overflow: hidden;
-    box-shadow: inset -10px 10px 0 10px rgb(175, 175, 175);
-    animation: fall .25s ease-in-out, shake 1.25s cubic-bezier(.36,.07,.19,.97) 3;
-}
-.pokeball::before,
-.pokeball::after {
-    content:"";
-    position: absolute;
-}
-.pokeball::before {
-    background: rgb(255, 0, 0);
-    width: 100%;
-    height: 50%;
-}
-.pokeball::after {
-    top: calc(50% - 10px);
-    width: 100%;
-    height: 20px;
-    background: rgb(0, 0, 0);
-}
-.pokeball_button {
-    position: absolute;
-    top: calc(50% - 37.5px);
-    left: calc(50% - 37.5px);
-    width: 50px;
-    height: 50px;
-    background: rgb(130, 130, 130);
-    border: 10px solid rgb(255, 255, 255);
-    border-radius: 50%;
-    z-index: 10;
-    box-shadow: 0 0 0 10px rgb(0, 0, 0);
-    animation: blink .5s alternate 7;
-}
-
-@keyframes blink {
-    from { background: rgb(255, 255, 255);}
-    to { background: rgb(255, 100, 100); }
-}
 @keyframes shake {
     0% { transform: translate(0, 0) rotate(0); }
     20% { transform: translate(-10px, 0) rotate(-20deg); }
@@ -275,6 +306,7 @@ body {
     60% { transform: translate(10px, 0) rotate(10deg); }
     100% { transform: translate(0, 0) rotate(0); }
 }
+
 @keyframes fall {
     0% { top: -500px }
     60% { top: 0 }

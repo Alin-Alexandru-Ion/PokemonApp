@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function PokemonList({pokemon, pokemonDetails}) {
+export default function PokemonList({ pokemon, pokemonDetails, fadeIn, fadeOut }) {
   
   if (!pokemon)
   {
@@ -8,12 +8,12 @@ export default function PokemonList({pokemon, pokemonDetails}) {
   }
 
   return (
-    <div>
-      <div className="card-group">
+    <div className={fadeOut ? `fade-out` : null}>
+      <div id="card-group" className={fadeIn ? `fade-in`: null}>
       {pokemonDetails.map((item) => (
-        <div className="card" key={item.id}>
-          <img className="picture" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${item.id}.png`} alt=''/>
-          <p className="text">{item.name}</p>
+        <div id="card" key={item.id}>
+          <img id="picture" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${item.id}.png`} alt=''/>
+          <p id="text">{item.name}</p>
         </div>
       ))}
       </div>

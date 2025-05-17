@@ -6,8 +6,7 @@ import Pagination from "./Pagination";
 function App() {
   const [pokemon, setPokemon] = useState([]);
   
-  const [isPortrait, setIsPortrait] = useState(window.innerHeight > window.innerWidth);
-  const [limit, setLimit] = useState(isPortrait ? 4 : 9);
+  const [limit, setLimit] = useState([]);
   
   const [pokemonUrl, setPokemonUrl] = useState([]);
   const [pokemonDetails, setPokemonDetails] = useState([]);
@@ -24,7 +23,7 @@ function App() {
   useEffect(() => {
     const handleResize = () => {
       const portrait = window.innerHeight > window.innerWidth;
-      setLimit(portrait ? 4 : 9);
+      setLimit(portrait ? 4 : 8);
     };
     window.addEventListener('resize', handleResize);
     return () =>

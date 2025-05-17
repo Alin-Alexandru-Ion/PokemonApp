@@ -30,20 +30,27 @@
   }
 
   #picture {
+    position: absolute;
     align-items: center;
     scale: 30%;
-    transform: translate(-120%, -65%);
+    transform: translate(0%, -25%);
   }
   
   #text {
+    position: absolute;
+    align-items: center;
     font-size: 22px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     -webkit-text-stroke-width: 2px;
     text-transform: uppercase;
-    transform: translate(-125%, -550%);
+    transform: translate(05%, 500%);
     text-shadow: 3px 3px 3px rgb(255, 255, 255);
   }
 }
+
+
+
+
 
 body {
     margin: 0px;
@@ -53,6 +60,10 @@ body {
     display: grid;
     place-items: center;
 }
+
+
+
+
 
 @media only screen and (orientation: landscape)
 {
@@ -233,6 +244,10 @@ body {
 }
 }
 
+
+
+
+
 #button-group {
     margin-top: 8vmin;
     display: flex;
@@ -271,22 +286,26 @@ body {
     overflow: hidden;
     box-shadow: inset -10px 10px 0 10px rgb(175, 175, 175);
 }
+
 #pokeball::before,
 #pokeball::after {
     content:"";
     position: absolute;
 }
+
 #pokeball::before {
     background: rgb(255, 0, 0);
     width: 100%;
     height: 50%;
 }
+
 #pokeball::after {
     top: calc(50% - 10px);
     width: 100%;
     height: 20px;
     background: rgb(0, 0, 0);
 }
+
 #pokeball_button {
     position: absolute;
     top: calc(50% - 37.5px);

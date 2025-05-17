@@ -5,7 +5,10 @@ import Pagination from "./Pagination";
 
 function App() {
   const [pokemon, setPokemon] = useState([]);
-  const [currentPageUrl, setCurrentPageUrl] = useState("https://pokeapi.co/api/v2/pokemon?offset=0&limit=9");
+  
+  const [isPortrait, setIsPortrait] = useState(window.innerHeight > window.innerWidth);
+  const [limit, setLimit] = useState(isPortrait ? 4 : 9);
+  
   const [pokemonUrl, setPokemonUrl] = useState([]);
   const [pokemonDetails, setPokemonDetails] = useState([]);
   const [nextPageUrl, setNextPageUrl] = useState();
@@ -16,6 +19,23 @@ function App() {
   const [fadeOut, setFadeOut] = useState(false);
   const [ball, setBall] = useState(true);
   const [aux, setAux] = useState(true);
+  
+  
+  useEffect(() => {
+    const handleResize = () => {
+      const portrait = window.innerHeight > window.innerWidth;
+      setLimit(portrait ? 4 : 9);
+    };
+    window.addEventListener('resize', handleResize);
+    return () =>
+    window.removeEventListener('resize', handleResize);
+  }, []);
+  
+  const [currentPageUrl, setCurrentPageUrl] = useState("https://pokeapi.co/api/v2/pokemon?offset=0&limit=${limit}");
+  
+  useEffect(() => {
+    setCurrentPageUrl("https://pokeapi.co/api/v2/pokemon?offset=0&limit=${limit}");
+  }, [limit]);
 
   //  Initial data fetch using Axios also used for pagination
   useEffect(() => {

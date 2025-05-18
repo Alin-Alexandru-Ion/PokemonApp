@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useRef} from "react";
 import PokemonList from "./PokemonList";
 import axios from "axios";
 import Pagination from "./Pagination";
@@ -19,7 +19,6 @@ function App()
   const [pokemon, setPokemon] = useState([]);
 
   const [limit, setLimit] = useState(getInitialLimit());
-
   const [currentPageUrl, setCurrentPageUrl] = useState(
     `https://pokeapi.co/api/v2/pokemon?offset=0&limit=${getInitialLimit()}`
   );
@@ -34,16 +33,20 @@ function App()
   const [fadeOut, setFadeOut] = useState(false);
   const [ball, setBall] = useState(true);
   const [aux, setAux] = useState(true);
+  const prevOrientation = useRef(window.innerHeight > window.innerWidth ? 'portrait' : 'landscape');
 
   
   useEffect(() => {
     const handleResize = () => {
-      const portrait = window.innerHeight > window.innerWidth;
-      setLimit(portrait ? 4 : 9);
+      const currentOrientation = window.innerHeight > window.innerWidth ? 'portrait' : 'landscape';
+      if (prevOrientation.current !== currentOrientation) {
+        setLimit(currentOrientation === 'portrait' ? 4 : 9); // update limit
+        window.location.reload(); // then reload (limit will be correct after reload)
+      }
+      prevOrientation.current = currentOrientation;
     };
     window.addEventListener('resize', handleResize);
-    return () =>
-    window.removeEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   useEffect(() => {

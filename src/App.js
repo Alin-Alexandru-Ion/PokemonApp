@@ -1,17 +1,14 @@
 import React, {useState, useEffect, useRef} from "react";
-import PokemonList from "./PokemonList";
+import PokemonCard from "./components/PokemonCard";
 import axios from "axios";
 import Pagination from "./Pagination";
 
 function getInitialLimit() 
 {
-    // Check if the window is in portrait mode
-    // If it is, return 4; otherwise, return 9
-    // This is a simple way to determine the limit based on screen orientation
-    if (window.innerHeight > window.innerWidth) {
-      return 4;
+    if (window.innerHeight < window.innerWidth) {
+      return 8;
     }
-  return window.innerHeight > window.innerWidth ? 4 : 9;
+    else return 6;
 }
 
 function App() 
@@ -40,7 +37,7 @@ function App()
     const handleResize = () => {
       const currentOrientation = window.innerHeight > window.innerWidth ? 'portrait' : 'landscape';
       if (prevOrientation.current !== currentOrientation) {
-        setLimit(currentOrientation === 'portrait' ? 4 : 9); // update limit
+        setLimit(currentOrientation === 'portrait' ? 6 : 8); // update limit
         window.location.reload(); // then reload (limit will be correct after reload)
       }
       prevOrientation.current = currentOrientation;
@@ -50,7 +47,7 @@ function App()
   }, []);
 
   useEffect(() => {
-    setCurrentPageUrl('https://pokeapi.co/api/v2/pokemon?offset=0&limit=${limit}');
+    setCurrentPageUrl(`https://pokeapi.co/api/v2/pokemon?offset=0&limit=${limit}`);
   }, [limit]);
 
   //  Initial data fetch using Axios also used for pagination
@@ -141,7 +138,7 @@ function App()
 
   return (
     <>
-      <PokemonList 
+      <PokemonCard 
         pokemon={pokemon} 
         pokemonDetails={pokemonDetails} 
         fadeIn={fadeIn} 

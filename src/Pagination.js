@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
@@ -17,3 +18,10 @@ export default function Pagination({ accessNextPage, accessPrevPage, fadeOut, fa
     </div>
   )
 }
+
+Pagination.propTypes = {
+  accessNextPage: PropTypes.func,
+  accessPrevPage: PropTypes.func,
+  fadeOut: PropTypes.bool,
+  fadeIn: PropTypes.bool,
+};

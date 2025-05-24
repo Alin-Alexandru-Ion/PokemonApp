@@ -1,280 +1,305 @@
-@media only screen and (orientation: portrait)
-{
-  #card-group
-  {
-    transition: transform 750ms ease;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    padding: 1rem;
-  }
+.root {
+    width: 100%;
+    height: 100%;
+}
 
-  #card-group, 
-  #card {
-    width: 45vmax;
-  }
-  
-  #card {
-    width: 20vmax;
-    height: 30vmax;
-    background-color: rgba(210, 210, 210, 0.9);
-    border-radius: 2vmin;
-    border-style: solid;
-    border-color: rgb(255, 220, 0);
-    border-width: 1vmin;
-    display: grid;
-    place-items: center;
-    align-items: center;
-    box-shadow: 2vmin 2vmin 3vmin rgb(0, 0, 0);
-    transition: 1s ease;
-  }
+@media (prefers-color-scheme: light) {
+    :root {
+        --bg-color-1: rgb(8, 0, 10);
+        --bg-color-2: rgb(49, 0, 61);
+        --bg-color-3: rgb(52, 0, 65);
+        --card-border-color: rgb(255, 220, 0);
+        --card-background-color: rgba(210, 210, 210, 0.9);
+        --card-text-color: rgb(255, 255, 255);
+    }
 
-  #picture {
-    position: absolute;
-    align-items: center;
-    scale: 30%;
-    transform: translate(0%, -25%);
-  }
-  
-  #text {
-    position: absolute;
-    align-items: center;
-    font-size: 22px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    -webkit-text-stroke-width: 2px;
-    text-transform: uppercase;
-    transform: translate(05%, 500%);
-    text-shadow: 3px 3px 3px rgb(255, 255, 255);
-  }
+    body {
+        margin: 0px;
+        background: var(--bg-color-1);
+        background: linear-gradient(180deg, var(--bg-color-1) 0%, rgb(49, 0, 61) 50%, rgb(52, 0, 65) 100%);
+        height: 100vh;
+        display: grid;
+        place-items: center;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color-1: rgb(8, 0, 10);
+        --bg-color-2: rgb(49, 0, 61);
+        --bg-color-3: rgb(52, 0, 65);
+        --card-border-color: rgb(255, 220, 0);
+        --card-background-color: rgba(210, 210, 210, 0.9);
+        --card-text-color: rgb(255, 255, 255);
+    }
+
+    body {
+        margin: 0px;
+        background: var(--bg-color-1);
+        background: linear-gradient(180deg, var(--bg-color-1) 0%, rgb(49, 0, 61) 50%, rgb(52, 0, 65) 100%);
+        height: 100vh;
+        display: grid;
+        place-items: center;
+    }
 }
 
 
 
 
+@media only screen and (orientation: portrait) {
 
-body {
-    margin: 0px;
-    background: rgb(8,0,10);
-    background: linear-gradient(180deg, rgb(8, 0, 10) 0%, rgb(49, 0, 61) 50%, rgb(52, 0, 65) 100%);
-    height: 100vh;
-    display: grid;
-    place-items: center;
+    .card-group {
+        transition: transform 1200ms ease;
+        position: relative;
+        left: -455%;
+        min-width: 1000%;
+        min-height: auto;
+        aspect-ratio: 3/7;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1vmin;
+        padding: 15%;
+    }
+
+    .pokemon-card {
+        position: relative;
+        place-items: center;
+        border-radius: 2vmin;
+        border-style: solid;
+        border-width: 1vmin;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 2vmin 2vmin 3vmin rgb(0, 0, 0);
+        transition: 1s ease;
+
+        border-color: var(--card-border-color);
+        background-color: var(--card-background-color);
+    }
+
+    .pokemon-image {
+        position: absolute;
+        max-width: 80%;
+        max-height: 60%;
+        top: 5%;
+    }
+  
+    .pokemon-name {
+        position: absolute;
+        bottom: 5%;
+        font-size: 3.5vmin;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        -webkit-text-stroke-width: 2px;
+        text-transform: uppercase;
+        text-shadow: 3px 3px 3px rgb(var(card-text-color));
+    }
+
+    #button-group {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        left: 35%;
+        right: 35%;
+        justify-content: space-around;
+        margin-top: 2vmin;
+    }
+
+    #button {
+        position: relative;
+        font-size: 5vmin;
+        color: rgb(255, 255, 255);
+        border: 0.4vmin solid rgb(200, 200, 200);
+        border-radius: 100%;
+        background-color: transparent;
+        aspect-ratio: 1 / 1;
+        border-color: rgb(255, 255, 255);
+    }
 }
-
 
 
 
 
 @media only screen and (orientation: landscape)
 {
-#card-group {
-    transition: transform 750ms ease;
+    .card-group {
+        transition: transform 1200ms ease;
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        overflow: hidden;
+        justify-content: center;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .pokemon-card {
+        position: absolute;
+        height: auto;
+        width: 20%;
+        aspect-ratio: 5 / 7;
+        border-radius: 2vmin;
+        border-style: solid;
+        border-width: 1vmin;
+        display: grid;
+        place-items: center;
+        box-shadow: 2vmin 2vmin 3vmin rgb(0, 0, 0);
+        transition: 1s ease;
+
+        border-color: var(--card-border-color);
+        background-color: var(--card-background-color);
+    }
+
+    .pokemon-card:nth-child(1) {
+        scale: 75%;
+        transform: translateX(-210%);
+        z-index: 1;
+    }
+
+    .pokemon-card:nth-child(1):hover {
+        scale: 85%;
+        transform: translateX(-210%);
+        z-index: 9;
+    }
+
+    .pokemon-card:nth-child(2) {
+        scale: 75%;
+        transform: translateX(-150%);
+        z-index: 2;
+    }
+
+    .pokemon-card:nth-child(2):hover {
+        scale: 85%;
+        transform: translateX(-157%);
+        z-index: 9;
+    }
+
+    .pokemon-card:nth-child(3) {
+        scale: 75%;
+        transform: translateX(-90%);
+        z-index: 3;
+    }
+
+    .pokemon-card:nth-child(3):hover {
+        scale: 85%;
+        transform: translateX(-104%);
+        z-index: 9;
+    }
+
+    .pokemon-card:nth-child(4) {
+        scale: 75%;
+        transform: translateX(-30%);
+        z-index: 4;
+    }
+
+    .pokemon-card:nth-child(4):hover {
+        scale: 85%;
+        transform: translateX(-51%);
+        z-index: 9;
+    }
+
+    .pokemon-card:nth-child(5) {
+        scale: 75%;
+        transform: translateX(30%);
+        z-index: 5;
+    }
+
+    .pokemon-card:nth-child(5):hover {
+        scale: 85%;
+        transform: translateX(2%);
+        z-index: 9;
+    }
+
+    .pokemon-card:nth-child(6) {
+        scale: 75%;
+        transform: translateX(90%);
+        z-index: 6;
+    }
+
+    .pokemon-card:nth-child(6):hover {
+        scale: 85%;
+        transform: translateX(55%);
+        z-index: 9;
+    }
+
+    .pokemon-card:nth-child(7) {
+        scale: 75%;
+        transform: translateX(150%);
+        z-index: 7;
+    }
+
+    .pokemon-card:nth-child(7):hover {
+        scale: 85%;
+        transform: translateX(108%);
+        z-index: 9;
+    }
+
+    .pokemon-card:nth-child(8) {
+        scale: 75%;
+        transform: translateX(210%);
+        z-index: 8;
+    }
+
+    .pokemon-card:nth-child(8):hover {
+        scale: 85%;
+        transform: translateX(161%);
+        z-index: 9;
+    }
+
+    .pokemon-image {
+        position: absolute;
+        align-items: center;
+        max-width: 90%;
+        max-height: 65%;
+        top: 5%;
+    }
+
+    .pokemon-name {
+        position: absolute;
+        align-items: center;
+        bottom: 5%;
+        font-size: 3vmin;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        -webkit-text-stroke-width: 3px;
+        text-transform: uppercase;
+        text-shadow: 4px 4px 4px var(--card-text-color);
+    }
+
+    #button-group {
+        position: absolute;
+        bottom: 5%;
+        display: flex;
+        flex-direction: row;
+        left: 40%;
+        right: 40%;
+        justify-content: space-around;
+        padding: 0vmin 4vmin;
+    }
+
+    #button-group > button {
+        font-size: 5vmin;
+        color: rgb(255, 255, 255);
+        border: 0.4vmin solid rgb(200, 200, 200);
+        border-radius: 100%;
+        background-color: transparent;
+        height: 6vmin;
+        width: 6vmin;
+        cursor: pointer;
+    }
+
+    #button {
+        color: rgb(255, 255, 255);
+        border-color: rgb(255, 255, 255);
+        transition: 500ms ease;
+    }
+
+    #button:hover {
+        animation: button_blink .5s alternate infinite ease-in-out;
+    }
 }
 
-#card-group, 
-#card {
-    aspect-ratio: 5 / 7;
-    width: 30vmin;
-}
-
-#card-group:hover > #card:nth-child(1) {
-    transform: translate(-255%, 17%) rotate(-12deg);
-}
-
-#card-group:hover > #card:nth-child(2) {
-    transform: translate(-200%, 10%) rotate(-9deg);
-}
-
-#card-group:hover > #card:nth-child(3) {
-    transform: translate(-140%, 5%) rotate(-6deg);
-}
-
-#card-group:hover > #card:nth-child(4) {
-    transform: translate(-70%, 1%) rotate(-3deg);
-}
-
-#card-group:hover > #card:nth-child(5) {
-    transform: translate(0, 0%) rotate(0deg);
-}
-
-#card-group:hover > #card:nth-child(6) {
-    transform: translate(70%, 1%) rotate(3deg);
-}
-
-#card-group:hover > #card:nth-child(7) {
-    transform: translate(140%, 5%) rotate(6deg);
-}
-
-#card-group:hover > #card:nth-child(8) {
-    transform: translate(200%, 10%) rotate(9deg);
-}
-
-#card-group:hover > #card:nth-child(9) {
-    transform: translate(255%, 17%) rotate(12deg);
-}
-
-#card {
-    width: 30vmin;
-    aspect-ratio: 5 / 7;
-    background-color: rgba(210, 210, 210, 0.9);
-    border-radius: 2vmin;
-    border-style: solid;
-    border-color: rgb(255, 220, 0);
-    border-width: 1vmin;
-    position: absolute;
-    display: grid;
-    place-items: center;
-    align-items: center;
-    box-shadow: 2vmin 2vmin 3vmin rgb(0, 0, 0);
-    transition: 1s ease;
-}
-
-#card:nth-child(1) {
-    scale: 75%;
-    transform: translateX(-60%) rotate(-4deg) translateY(4%);
-    z-index: 1;
-}
-
-#card:nth-child(1):hover {
-    scale: 90%;
-    z-index: 6;
-    transform: translateX(-50%);
-}
-
-#card:nth-child(2) {
-    scale: 75%;
-    transform: translateX(-45%) rotate(-3deg) translateY(3%);
-    z-index: 2;
-}
-
-#card:nth-child(2):hover {
-    scale: 90%;
-    z-index: 6;
-}
-
-#card:nth-child(3) {
-    scale: 75%;
-    transform: translateX(-30%) rotate(-2deg) translateY(2%);
-    z-index: 3;
-}
-
-#card:nth-child(3):hover {
-    scale: 90%;
-    z-index: 6;
-}
-
-#card:nth-child(4) {
-    scale: 75%;
-    transform: translateX(-15%) rotate(-1deg) translateY(1%);
-    z-index: 4;
-}
-
-#card:nth-child(4):hover {
-    scale: 90%;
-    z-index: 6;
-}
-
-#card:nth-child(5) {
-    scale: 75%;
-    transform: translateX(0%);
-    z-index: 5;
-}
-
-#card:nth-child(5):hover {
-    scale: 90%;
-    z-index: 6;
-}
-
-#card:nth-child(6) {
-    scale: 75%;
-    transform: translateX(15%) rotate(1deg) translateY(1%);
-    z-index: 4;
-}
-
-#card:nth-child(6):hover {
-    scale: 90%;
-    z-index: 6;
-}
-
-#card:nth-child(7) {
-    scale: 75%;
-    transform: translateX(30%) rotate(2deg) translateY(2%);
-    z-index: 3;
-}
-
-#card:nth-child(7):hover {
-    scale: 90%;
-    z-index: 6;
-}
-
-#card:nth-child(8) {
-    scale: 75%;
-    transform: translateX(45%) rotate(3deg) translateY(3%);
-    z-index: 2;
-}
-
-#card:nth-child(8):hover {
-    scale: 90%;
-    z-index: 6;
-}
-
-#card:nth-child(9) {
-    scale: 75%;
-    transform: translateX(60%) rotate(4deg) translateY(4%);
-    z-index: 1;
-}
-
-#card:nth-child(9):hover {
-    scale: 90%;
-    z-index: 6;
-}
-
-#picture {
-    scale: 75%;
-    transform: translateX(-11.5%);
-}
-
-#text {
-    font-size: 32px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    -webkit-text-stroke-width: 3px;
-    text-transform: uppercase;
-    transform: translateX(-23%);
-    text-shadow: 4px 4px 4px rgb(255, 255, 255);
-}
-}
 
 
 
 
-
-#button-group {
-    margin-top: 8vmin;
-    display: flex;
-    justify-content: space-around;
-    padding: 0vmin 4vmin;
-}
-
-#button-group > button {
-    font-size: 5vmin;
-    color: rgb(255, 255, 255);
-    border: 0.4vmin solid rgb(200, 200, 200);
-    border-radius: 100%;
-    background-color: transparent;
-    height: 6vmin;
-    width: 6vmin;
-    cursor: pointer;
-}
-
-#button {
-    color: rgb(255, 255, 255);
-    border-color: rgb(255, 255, 255);
-    transition: 500ms ease;
-}
-
-#button:hover {
-    animation: button_blink .5s alternate infinite ease-in-out;
-}
 
 #pokeball {
     position: relative;
@@ -287,8 +312,7 @@ body {
     box-shadow: inset -10px 10px 0 10px rgb(175, 175, 175);
 }
 
-#pokeball::before,
-#pokeball::after {
+#pokeball::before, #pokeball::after {
     content:"";
     position: absolute;
 }
@@ -321,7 +345,7 @@ body {
 
 /* Animations triggers */
 
-.fade-in{
+.fade-in {
     animation: fade-in 1s;
     animation-delay: 0s;
 }
@@ -338,6 +362,7 @@ body {
 
 .aux {
     animation: blink 500ms alternate 7;
+    animation-fill-mode: forwards;
 }
 
 /*Animations keyframes*/

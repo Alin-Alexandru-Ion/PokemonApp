@@ -137,7 +137,7 @@ function App()
   }
 
   return (
-    <>
+    <div className="grid-container">
       <PokemonCard 
         pokemon={pokemon} 
         pokemonDetails={pokemonDetails} 
@@ -150,7 +150,7 @@ function App()
         fadeIn = {fadeIn}
         fadeOut = {fadeOut}
       />
-    </>
+    </div>
   );
 }
 

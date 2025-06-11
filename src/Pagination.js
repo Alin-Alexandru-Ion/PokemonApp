@@ -7,12 +7,12 @@ export default function Pagination({ accessNextPage, accessPrevPage, fadeOut, fa
   return (
     <div className={fadeOut ? `fade-out` : null}>
       <div id="button-group" className={fadeIn ? `fade-in` : null}>
-          { accessPrevPage && <button id="button" onClick={accessPrevPage}>
-            <ArrowBackIcon fontSize='10'></ArrowBackIcon>
+          { accessPrevPage && <button className='button' onClick={accessPrevPage}>
+            <ArrowBackIcon id='back-arrow'></ArrowBackIcon>
           </button> }
 
-          { accessNextPage && <button id="button" onClick={accessNextPage}>
-            <ArrowForwardIcon fontSize='30'></ArrowForwardIcon>
+          { accessNextPage && <button className='button' onClick={accessNextPage}>
+            <ArrowForwardIcon id='next-arrow'></ArrowForwardIcon>
           </button> }
       </div>
     </div>

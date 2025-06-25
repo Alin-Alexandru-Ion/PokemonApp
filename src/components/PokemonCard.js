@@ -9,8 +9,8 @@ export default function PokemonList({ pokemon, pokemonDetails, fadeIn, fadeOut }
   }
 
   return (
-    <div className={fadeOut ? `fade-out` : null}>
-      <div className={fadeIn ? `fade-in`: null}>
+    <div id="out-container" className={fadeOut ? `fade-out` : null}>
+      <div id="in-container" className={fadeIn ? `fade-in`: null}>
         <div className='card-group'>
           {pokemonDetails.map((item) => (
             <div className="pokemon-card" key={item.id}>

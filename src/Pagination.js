@@ -5,13 +5,13 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 export default function Pagination({ accessNextPage, accessPrevPage, fadeOut, fadeIn }) {
   return (
-    <div className={fadeOut ? `fade-out` : null}>
+    <div id="pagination" className={fadeOut ? `fade-out` : null}>
       <div id="button-group" className={fadeIn ? `fade-in` : null}>
-          { accessPrevPage && <button className='button' onClick={accessPrevPage}>
+          { accessPrevPage && <button id="prev-button" className='button' onClick={accessPrevPage}>
             <ArrowBackIcon id='back-arrow'></ArrowBackIcon>
           </button> }
 
-          { accessNextPage && <button className='button' onClick={accessNextPage}>
+          { accessNextPage && <button id="next-button" className='button' onClick={accessNextPage}>
             <ArrowForwardIcon id='next-arrow'></ArrowForwardIcon>
           </button> }
       </div>

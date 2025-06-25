@@ -1,13 +1,6 @@
-.html {
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-}
-
-.root {
-    max-width: 100%;
-    max-height: 100%;
-    position: relative;
+html {
+    margin: 0;
+    padding: 0;
 }
 
 @media (prefers-color-scheme: light) {
@@ -16,7 +9,8 @@
         --bg-color-2: rgb(180, 125, 135);
         --bg-color-3: rgb(80, 60, 60);
         --card-border-color: rgb(115, 135, 115);
-        --card-background-color: rgba(175, 175, 175, 0.4);
+        --card-transparency: 0.0;
+        --card-background-color: rgba(175, 175, 175, var(--card-transparency));
         --card-shadow: rgba(0, 0, 0, 0.5);
         --card-text-color: rgb(1, 73, 28);
         --card-text-shadow-color: rgba(0, 0, 0, 0.6);
@@ -62,7 +56,8 @@
         --bg-color-2: rgb(50, 0, 60);
         --bg-color-3: rgb(75, 0, 75);
         --card-border-color: rgb(255, 220, 0);
-        --card-background-color: rgba(210, 210, 210, 0.4);
+        --card-transparency: 0.0;
+        --card-background-color: rgba(210, 210, 210, var(--card-transparency));
         --card-shadow: rgba(0, 0, 0, 0.4);
         --card-text-color: rgb(255, 255, 255);
         --card-text-shadow-color: rgba(0, 0, 0, 0.6);
@@ -107,10 +102,6 @@
 
 @media only screen and (orientation: portrait) {
 
-    :root {
-        --starting-point: 25vmin;
-    }
-
     body {
         font-size: 10px;
         font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -118,10 +109,16 @@
         text-transform: uppercase;
     }
 
+    :root {
+        --starting-point: 25vmin;
+        --card-transparency: 0.4;
+        --platform: 75vmin;
+    }
+
     .grid-container {
+        position: relative;
         max-width: 100vw;
         max-height: auto;
-        position: relative;
         display: grid;
         grid-template-rows: 9fr 1fr;
     }
@@ -204,187 +201,480 @@
 
 @media only screen and (orientation: landscape)
 {
+
+    body {
+        font-size: 10px;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        -webkit-text-stroke-width: 0.25em;
+        text-transform: uppercase;
+        margin: 0;
+        padding: 0;
+    }
+
     :root {
-        --starting-point: 36%;
+        --card-transparency: 0.85;
+        margin: 0;
+        padding: 0;
+    }
+
+    .grid-container {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #out-container {
+        position: relative;
+        aspect-ratio: 16 / 9;
+        width: 60vmax;
+        height: 60vmin;
+    }
+
+    #in-container {
+        width: 100%;
+        height: 100%;
     }
     
     .card-group {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: grid;
+        justify-items: center;
+        grid-template-columns: repeat(8, 1fr);
         transition: transform 1200ms ease;
-        display: inline-flex;
-        flex-direction: row;
-        align-items: center;
-        overflow: hidden;
-        justify-content: center;
-        gap: 1rem;
-        padding: 1rem;
     }
 
     .pokemon-card {
-        position: absolute;
-        height: auto;
-        width: 20%;
+        position: relative;
         aspect-ratio: 5 / 7;
-        border-radius: 2vmin;
-        border-style: solid;
-        border-width: 1vmin;
+        max-height: 30vmin;
+        max-width: auto;
         display: grid;
+        grid-template-rows: 3fr 1fr;
         place-items: center;
-        box-shadow: 2vmin 2vmin 3vmin rgb(0, 0, 0);
+        border-radius: 2vmin;
+        border-width: 2vmin;
+        border-style: solid;
         transition: 1s ease;
-
-        border-color: var(--card-border-color);
-        background-color: var(--card-background-color);
-    }
-
-    .pokemon-card:nth-child(1) {
-        scale: 75%;
-        transform: translateX(-210%);
-        z-index: 1;
-    }
-
-    .pokemon-card:nth-child(1):hover {
-        scale: 85%;
-        transform: translateX(-210%);
-        z-index: 9;
-    }
-
-    .pokemon-card:nth-child(2) {
-        scale: 75%;
-        transform: translateX(-150%);
-        z-index: 2;
-    }
-
-    .pokemon-card:nth-child(2):hover {
-        scale: 85%;
-        transform: translateX(-157%);
-        z-index: 9;
-    }
-
-    .pokemon-card:nth-child(3) {
-        scale: 75%;
-        transform: translateX(-90%);
-        z-index: 3;
-    }
-
-    .pokemon-card:nth-child(3):hover {
-        scale: 85%;
-        transform: translateX(-104%);
-        z-index: 9;
-    }
-
-    .pokemon-card:nth-child(4) {
-        scale: 75%;
-        transform: translateX(-30%);
-        z-index: 4;
-    }
-
-    .pokemon-card:nth-child(4):hover {
-        scale: 85%;
-        transform: translateX(-51%);
-        z-index: 9;
-    }
-
-    .pokemon-card:nth-child(5) {
-        scale: 75%;
-        transform: translateX(30%);
-        z-index: 5;
-    }
-
-    .pokemon-card:nth-child(5):hover {
-        scale: 85%;
-        transform: translateX(2%);
-        z-index: 9;
-    }
-
-    .pokemon-card:nth-child(6) {
-        scale: 75%;
-        transform: translateX(90%);
-        z-index: 6;
-    }
-
-    .pokemon-card:nth-child(6):hover {
-        scale: 85%;
-        transform: translateX(55%);
-        z-index: 9;
-    }
-
-    .pokemon-card:nth-child(7) {
-        scale: 75%;
-        transform: translateX(150%);
-        z-index: 7;
-    }
-
-    .pokemon-card:nth-child(7):hover {
-        scale: 85%;
-        transform: translateX(108%);
-        z-index: 9;
-    }
-
-    .pokemon-card:nth-child(8) {
-        scale: 75%;
-        transform: translateX(210%);
-        z-index: 8;
-    }
-
-    .pokemon-card:nth-child(8):hover {
-        scale: 85%;
-        transform: translateX(161%);
-        z-index: 9;
+        overflow: hidden;
     }
 
     .pokemon-image {
         position: absolute;
-        align-items: center;
-        max-width: 90%;
-        max-height: 65%;
+        aspect-ratio: 1 / 1;
         top: 5%;
+        max-width: auto;
+        max-height: 60%;
+        padding: 1vmin;
+        object-fit: contain;
     }
-
+  
     .pokemon-name {
         position: absolute;
-        align-items: center;
         bottom: 5%;
+        max-width: 100%;
+        max-height: 100%;
         font-size: 3vmin;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        -webkit-text-stroke-width: 3px;
-        text-transform: uppercase;
-        text-shadow: 4px 4px 4px var(--card-text-color);
+        padding: 1vmin;
+        text-align: center;
+    }
+
+    #pagination {
+        position: relative;
+        width: 60vmax;
+        height: 15vmin;
     }
 
     #button-group {
-        position: absolute;
-        bottom: 5%;
+        width: 100%;
+        height: 100%;
+        align-items: center;
         display: flex;
         flex-direction: row;
-        left: 40%;
-        right: 40%;
-        justify-content: space-around;
-        padding: 0vmin 4vmin;
+        justify-content: center;
     }
 
-    #button-group > button {
-        font-size: 5vmin;
-        color: rgb(255, 255, 255);
-        border: 0.4vmin solid rgb(200, 200, 200);
-        border-radius: 100%;
+    .button {
+        position: relative;
+        padding-top: 1.5vmin;
+        padding-bottom: 1.5vmin;
+        padding-left: 1.7vmin;
+        padding-right: 1.7vmin;
         background-color: transparent;
-        height: 6vmin;
-        width: 6vmin;
-        cursor: pointer;
+        border: 1.25vmin solid;
+        border-radius: 100%;
     }
 
-    #button {
-        color: rgb(255, 255, 255);
-        border-color: rgb(255, 255, 255);
-        transition: 500ms ease;
-    }
-
-    #button:hover {
+    #prev-button:hover, #next-button:hover {
         animation: button_blink .5s alternate infinite ease-in-out;
+    }
+
+    #back-arrow {
+        font-size: 4vmin;
+    }
+
+    #next-arrow {
+        font-size: 4vmin;
+    }
+
+    @keyframes button_blink {
+        from {
+            color: rgb(255, 0, 0);
+            border-color: rgb(255, 0, 0);
+        }
+        to {
+            color: rgb(150, 0, 0);
+            border-color: rgb(150, 0, 0);
+        }
+    }
+
+    @keyframes fall {
+        0% { top: -20%; left: calc(var(--starting-point) - var(--platform)); }
+        60% { top: 30%; left: var(--starting-point); }
+        80% { top: 20%; left: var(--starting-point); }
+        100% { top: 30%; left: var(--starting-point); }
     }
 }
 
 
+
+@media (orientation: landscape) and (max-aspect-ratio: 16/9) {
+
+    :root {
+        --starting-point: 25%;
+        --platform: 150vmin;
+    }
+
+    .pokemon-card:nth-child(1) {
+        scale: 85%;
+        translate: -7vmax 0;
+        z-index: 1;
+    }
+
+    .pokemon-card:nth-child(1):hover {
+        scale: 100%;
+        translate: -9vmax -6vmin;
+        z-index: 9;
+    }
+
+    .pokemon-card:nth-child(2) {
+        scale: 85%;
+        translate: -5vmax 0;
+        z-index: 2;
+    }
+
+    .pokemon-card:nth-child(2):hover {
+        scale: 100%;
+        translate: -7vmax -6vmin;
+        z-index: 9;
+    }
+
+    .pokemon-card:nth-child(3) {
+        scale: 85%;
+        translate: -3vmax 0;
+        z-index: 3;
+    }
+
+    .pokemon-card:nth-child(3):hover {
+        scale: 100%;
+        translate: -5vmax -6vmin;
+        z-index: 9;
+    }
+
+    .pokemon-card:nth-child(4) {
+        scale: 85%;
+        translate: -1vmax 0;
+        z-index: 4;
+    }
+
+    .pokemon-card:nth-child(4):hover {
+        scale: 100%;
+        translate: -3vmax -6vmin;
+        z-index: 9;
+    }
+
+    .pokemon-card:nth-child(5) {
+        scale: 85%;
+        translate: 1vmax 0;
+        z-index: 5;
+    }
+
+    .pokemon-card:nth-child(5):hover {
+        scale: 100%;
+        translate: -1vmax -6vmin;
+        z-index: 9;
+    }
+
+    .pokemon-card:nth-child(6) {
+        scale: 85%;
+        translate: 2vmax 0;
+        z-index: 6;
+    }
+
+    .pokemon-card:nth-child(6):hover {
+        scale: 100%;
+        translate: 0vmax -6vmin;
+        z-index: 9;
+    }
+
+    .pokemon-card:nth-child(7) {
+        scale: 85%;
+        translate: 4vmax 0;
+        z-index: 7;
+    }
+
+    .pokemon-card:nth-child(7):hover {
+        scale: 100%;
+        translate: 2vmax -6vmin;
+        z-index: 9;
+    }
+
+    .pokemon-card:nth-child(8) {
+        scale: 85%;
+        translate: 6vmax 0;
+        z-index: 8;
+    }
+
+    .pokemon-card:nth-child(8):hover {
+        scale: 100%;
+        translate: 4vmax -6vmin;
+        z-index: 9;
+    }
+
+    @keyframes fall {
+        0% { top: -20%; left: -50%; }
+        60% { top: 30%; left: 33%; }
+        80% { top: 20%; left: 33%; }
+        100% { top: 30%; left: 33%; }
+    }
+}
+
+@media (orientation: landscape) and (min-aspect-ratio: 16/9) and (max-aspect-ratio: 3/1) {
+
+    :root {
+        --starting-point: 25%;
+        --platform: 35vmax;
+    }
+
+    .pokemon-card:nth-child(1) {
+        scale: 85%;
+        translate: 1.75vmax 0;
+        z-index: 1;
+    }
+
+    .pokemon-card:nth-child(1):hover {
+        scale: 100%;
+        translate: 0.25vmax -5vmin;
+        z-index: 9;
+    }
+
+    .pokemon-card:nth-child(2) {
+        scale: 85%;
+        translate: 1.25vmax 0;
+        z-index: 2;
+    }
+
+    .pokemon-card:nth-child(2):hover {
+        scale: 100%;
+        translate: -0.25vmax -5vmin;
+        z-index: 9;
+    }
+
+    .pokemon-card:nth-child(3) {
+        scale: 85%;
+        translate: 0.75vmax 0;
+        z-index: 3;
+    }
+
+    .pokemon-card:nth-child(3):hover {
+        scale: 100%;
+        translate: -0.75vmax -5vmin;
+        z-index: 9;
+    }
+
+    .pokemon-card:nth-child(4) {
+        scale: 85%;
+        translate: 0.25vmax 0;
+        z-index: 4;
+    }
+
+    .pokemon-card:nth-child(4):hover {
+        scale: 100%;
+        translate: -1.25vmax -5vmin;
+        z-index: 9;
+    }
+
+    .pokemon-card:nth-child(5) {
+        scale: 85%;
+        translate: -0.25vmax 0;
+        z-index: 5;
+    }
+
+    .pokemon-card:nth-child(5):hover {
+        scale: 100%;
+        translate: -1.75vmax -5vmin;
+        z-index: 9;
+    }
+
+    .pokemon-card:nth-child(6) {
+        scale: 85%;
+        translate: -0.75vmax 0;
+        z-index: 6;
+    }
+
+    .pokemon-card:nth-child(6):hover {
+        scale: 100%;
+        translate: -2.25vmax -5vmin;
+        z-index: 9;
+    }
+
+    .pokemon-card:nth-child(7) {
+        scale: 85%;
+        translate: -1.25vmax 0;
+        z-index: 7
+    }
+
+    .pokemon-card:nth-child(7):hover {
+        scale: 100%;
+        translate: -2.75vmax -5vmin;
+        z-index: 9;
+    }
+
+    .pokemon-card:nth-child(8) {
+        scale: 85%;
+        translate: -1.75vmax 0;
+        z-index: 7
+    }
+
+    .pokemon-card:nth-child(8):hover {
+        scale: 100%;
+        translate: -3.25vmax -5vmin;
+        z-index: 9;
+    }
+
+    @keyframes fall {
+        0% { top: -20%; left: -50%; }
+        60% { top: 30%; left: 40%; }
+        80% { top: 20%; left: 40%; }
+        100% { top: 30%; left: 40%; }
+    }
+}
+
+@media (orientation: landscape) and (min-aspect-ratio: 3/1) {
+
+    :root {
+        --starting-point: 25%;
+        --platform: 35vmax;
+    }
+    
+    .pokemon-card:nth-child(1) {
+        scale: 85%;
+        translate: 10.5vmax 0;
+        z-index: 1;
+    }
+
+    .pokemon-card:nth-child(1):hover {
+        scale: 100%;
+        translate: 9vmax -5vmin;
+        z-index: 9;
+    }
+
+    .pokemon-card:nth-child(2) {
+        scale: 85%;
+        translate: 7.5vmax 0;
+        z-index: 2;
+    }
+
+    .pokemon-card:nth-child(2):hover {
+        scale: 100%;
+        translate: 6.5vmax -5vmin;
+        z-index: 9;
+    }
+
+    .pokemon-card:nth-child(3) {
+        scale: 85%;
+        translate: 4.5vmax 0;
+        z-index: 3;
+    }
+
+    .pokemon-card:nth-child(3):hover {
+        scale: 100%;
+        translate: 3.5vmax -5vmin;
+        z-index: 9;
+    }
+
+    .pokemon-card:nth-child(4) {
+        scale: 85%;
+        translate: 1.5vmax 0;
+        z-index: 4;
+    }
+
+    .pokemon-card:nth-child(4):hover {
+        scale: 100%;
+        translate: 0.5vmax -5vmin;
+        z-index: 9;
+    }
+
+    .pokemon-card:nth-child(5) {
+        scale: 85%;
+        translate: -1.5vmax 0;
+        z-index: 5;
+    }
+
+    .pokemon-card:nth-child(5):hover {
+        scale: 100%;
+        translate: -2.5vmax -5vmin;
+        z-index: 9;
+    }
+
+    .pokemon-card:nth-child(6) {
+        scale: 85%;
+        translate: -4.5vmax 0;
+        z-index: 6;
+    }
+
+    .pokemon-card:nth-child(6):hover {
+        scale: 100%;
+        translate: -5.5vmax -5vmin;
+        z-index: 9;
+    }
+
+    .pokemon-card:nth-child(7) {
+        scale: 85%;
+        translate: -7.5vmax 0;
+        z-index: 7;
+    }
+
+    .pokemon-card:nth-child(7):hover {
+        scale: 100%;
+        translate: -8.5vmax -5vmin;
+        z-index: 9;
+    }
+
+    .pokemon-card:nth-child(8) {
+        scale: 85%;
+        translate: -10.5vmax 0;
+        z-index: 8;
+    }
+
+    .pokemon-card:nth-child(8):hover {
+        scale: 100%;
+        translate: -11.5vmax -5vmin;
+        z-index: 9;
+    }
+
+
+    @keyframes fall {
+        0% { top: -20%; left: -50%; }
+        60% { top: 30%; left: 43%; }
+        80% { top: 20%; left: 43%; }
+        100% { top: 30%; left: 43%; }
+    }
+}
 
 
 
@@ -471,17 +761,6 @@
     to { background: rgb(255, 100, 100); }
 }
 
-@keyframes button_blink {
-    from {
-        color: rgb(255, 0, 0);
-        border-color: rgb(255, 0, 0);
-    }
-    to {
-        color: rgb(150, 0, 0);
-        border-color: rgb(150, 0, 0);
-    }
-}
-
 @keyframes shake {
     0% { transform: translate(0, 0) rotate(0); }
     20% { transform: translate(-1.75vmin, 0) rotate(-20deg); }
@@ -489,11 +768,4 @@
     50% { transform: translate(-1.75vmin, 0) rotate(-10deg); }
     60% { transform: translate(1.75vmin, 0) rotate(10deg); }
     100% { transform: translate(0, 0) rotate(0); }
-}
-
-@keyframes fall {
-    0% { top: -20%; left: calc(var(--starting-point) - 75vmin); }
-    60% { top: 30%; left: var(--starting-point); }
-    80% { top: 20%; left: var(--starting-point); }
-    100% { top: 30%; left: var(--starting-point); }
 }

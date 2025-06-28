@@ -10,8 +10,8 @@ A responsive React.js application that displays Pokémon cards in dynamic layout
 
 * **Responsive Layouts**
 
-  * 🗭 **Portrait Mode**: Grid of 6 cards (3 rows × 2 columns)
-  * 🔳 **Landscape Mode**: Overlapping stack of 8 cards, animated on hover
+  * :iphone: **Portrait Mode**: Grid of 6 cards (3 rows × 2 columns)
+  * :computer: **Landscape Mode**: Overlapping stack of 8 cards, animated on hover
 
 * **Pagination**
 

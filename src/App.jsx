@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useRef} from "react";
 import PokemonCard from "./components/PokemonCard";
 import axios from "axios";
-import Pagination from "./Pagination";
+import Pagination from "./components/Pagination";
 
 function getInitialLimit() 
 {

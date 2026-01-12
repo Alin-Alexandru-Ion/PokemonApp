@@ -35,7 +35,7 @@ A responsive React.js application that displays Pokémon cards in dynamic layout
 ## 🖥️ Demo
 
 > 🔗 [**Live Preview**](https://alin-alexandru-ion.github.io/PokemonApp/)
-> *(Deployed via Netlify, Vercel, or GitHub Pages — you can use any of them.)*
+> *(Deployed via GitHub Pages)*
 
 ---
 

@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from "react";
+import {useState, useEffect, useRef} from "react";
 import PokemonCard from "./components/PokemonCard";
 import axios from "axios";
 import Pagination from "./components/Pagination";
@@ -16,9 +16,7 @@ function App()
   const [pokemon, setPokemon] = useState([]);
 
   const [limit, setLimit] = useState(getInitialLimit());
-  const [currentPageUrl, setCurrentPageUrl] = useState(
-    `https://pokeapi.co/api/v2/pokemon?offset=0&limit=${getInitialLimit()}`
-  );
+  const [currentPageUrl, setCurrentPageUrl] = useState(`https://pokeapi.co/api/v2/pokemon?offset=0&limit=${getInitialLimit()}`);
   
   const [pokemonUrl, setPokemonUrl] = useState([]);
   const [pokemonDetails, setPokemonDetails] = useState([]);
@@ -31,6 +29,10 @@ function App()
   const [ball, setBall] = useState(true);
   const [aux, setAux] = useState(true);
   const prevOrientation = useRef(window.innerHeight > window.innerWidth ? 'portrait' : 'landscape');
+
+  const getSystemTheme = () => window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+
+  const [theme, setTheme] = useState(getSystemTheme);
 
   
   useEffect(() => {
@@ -94,6 +96,9 @@ function App()
     resolve => setTimeout(resolve, ms)
   );
 
+  const toggleTheme = (currentTheme) => {
+    return currentTheme === "dark" ? "light" : "dark";
+  };
 
   //  Delayed Pagination & Animation trigger
   const nextButtonPress = async event => {
@@ -130,14 +135,37 @@ function App()
   //  Loading Pokeball animation
   if (loading) {
     return (
-    <div id="pokeball" className={ball ? `ball` : null}>
-      <div id="pokeball_button" className={aux ? `aux` : null}></div>
-    </div>
-    )
+      <div
+        className={[
+          theme !== "system" && theme
+        ].filter(Boolean).join(" ")}
+      >
+        <div id="pokeball" className={ball ? "ball" : null}>
+          <div id="pokeball_button" className={aux ? "aux" : null}></div>
+        </div>
+      </div>
+    );
   }
 
+  const containerClassName = [
+    "grid-container",
+    fadeOut && "fade-out",
+    theme !== "system" && theme
+  ].filter(Boolean).join(" ");
+
   return (
-    <div className="grid-container">
+    <div
+    className={containerClassName}
+    >
+      <button
+        className="theme-toggle"
+        onClick={() =>
+          setTheme(toggleTheme)
+        }
+      >
+        {theme === "dark" ? "🌙" : "☀️"}
+      </button>
+
       <PokemonCard 
         pokemon={pokemon} 
         pokemonDetails={pokemonDetails} 
